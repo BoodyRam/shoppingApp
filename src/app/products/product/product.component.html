@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col-4 mx-auto m-2">
+            <button class="btn btn-primary me-2" (click)="fetchData()">Fetch Products</button>
+            <button class="btn btn-danger" (click)="onClearProducts()">Clear Products</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-4" *ngFor="let product of products">
+        <div class="card" style="width: 18rem;" style='margin: 5px;'>
+            <img src="{{product.imgUrl}}" style="max-height: 300px;" class="card-img-top" alt="{{product.title}}">
+            <div class="card-body">
+                <h5 class="card-title">{{product.title}}</h5>
+                <p class="card-text">{{product.desc}}</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <button class="btn btn-danger" (click)="onDeleteProduct(product.id)">Delete</button>
+                <button class="btn btn-primary" routerLink="/products/{{product.id}}/edit">Edit</button>
+            </div>
+        </div>
+    </div>
+</div>
